@@ -97,4 +97,7 @@
          screenshot chord -->
     <integer name="config_screenshotChordKeyTimeout">0</integer>
 
+    <!-- Turbo -->
+    <string name="config_batterySaverScheduleProvider">com.google.android.apps.turbo</string>
+
 </resources>
