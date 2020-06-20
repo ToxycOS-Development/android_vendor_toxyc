@@ -72,3 +72,7 @@ PRODUCT_PACKAGES_DEBUG += \
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     SystemUI \
     Launcher3QuickStep
+
+# Google icons mess
+PRODUCT_PACKAGES += \
+    wellbeingconf
