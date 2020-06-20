@@ -75,4 +75,5 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
 
 # Google icons mess
 PRODUCT_PACKAGES += \
-    wellbeingconf
+    wellbeingconf \
+    googleconf
