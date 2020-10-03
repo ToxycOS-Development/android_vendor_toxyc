@@ -17,7 +17,8 @@ PRODUCT_PACKAGES += \
     BluetoothExt \
     ExactCalculator \
     ThemePicker \
-    ToxycThemesStub
+    ToxycThemesStub \
+    PixelThemesStub2019
 
 # Extra tools in Lineage
 PRODUCT_PACKAGES += \
