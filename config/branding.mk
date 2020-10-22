@@ -1,4 +1,4 @@
-# Copyright (C) 2018-20 Project ToxycOS
+# Copyright (C) 2020 Project ToxycOS
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,21 +13,16 @@
 # limitations under the License.
 
 # Branding!
-TOXYC_MOD_VERSION = v4.0
-
+TOXYC_MOD_VERSION = 4.0.0
+TOXYC_VERSION_CODENAME  = Injected
 
 ifndef TOXYC_BUILD_TYPE
     TOXYC_BUILD_TYPE := UNOFFICIAL
 endif
 
 CURRENT_DEVICE=$(shell echo "$(TARGET_PRODUCT)" | cut -d'_' -f 2,3)
-TOXYC_DATE_YEAR := $(shell date -u +%Y)
-TOXYC_DATE_MONTH := $(shell date -u +%m)
-TOXYC_DATE_DAY := $(shell date -u +%d)
-TOXYC_DATE_HOUR := $(shell date -u +%H)
-TOXYC_DATE_MINUTE := $(shell date -u +%M)
-TOXYC_BUILD_DATE_UTC := $(shell date -d '$(TOXYC_DATE_YEAR)-$(TOXYC_DATE_MONTH)-$(TOXYC_DATE_DAY) $(TOXYC_DATE_HOUR):$(TOXYC_DATE_MINUTE) UTC' +%s)
-CUSTOM_BUILD_DATE := $(TOXYC_DATE_YEAR)$(TOXYC_DATE_MONTH)$(TOXYC_DATE_DAY)-$(TOXYC_DATE_HOUR)$(TOXYC_DATE_MINUTE)
+BUILD_DATE := $(shell date +%Y%m%d)
+BUILD_TIME := $(shell date +%H%M)
 
 ifeq ($(TOXYC_OFFICIAL), true)
    LIST = $(shell cat vendor/toxyc/toxyc.devices)
@@ -46,11 +41,11 @@ endif
 
 TARGET_PRODUCT_SHORT := $(subst toxyc_,,$(TOXYC_BUILD))
 
-TOXYC_VERSION := ToxycOS-$(TOXYC_MOD_VERSION)-$(CURRENT_DEVICE)-$(TOXYC_BUILD_TYPE)-$(CUSTOM_BUILD_DATE)
+TOXYC_VERSION := ToxycOS-$(TOXYC_MOD_VERSION)-$(TOXYC_VERSION_CODENAME)-$(CURRENT_DEVICE)-$(TOXYC_BUILD_TYPE)-$(BUILD_DATE)-$(BUILD_TIME)
 
-TOXYC_FINGERPRINT := ToxycOS/$(TOXYC_MOD_VERSION)/$(PLATFORM_VERSION)/$(TARGET_PRODUCT_SHORT)/$(CUSTOM_BUILD_DATE)
+TOXYC_FINGERPRINT := ToxycOS/$(TOXYC_MOD_VERSION)/$(TOXYC_VERSION_CODENAME)/$(PLATFORM_VERSION)/$(TARGET_PRODUCT_SHORT)/$(BUILD_DATE)/$(BUILD_TIME)
 
-TOXYC_DISPLAY_VERSION := ToxycOS-$(TOXYC_MOD_VERSION)-$(TOXYC_BUILD_TYPE)
+TOXYC_DISPLAY_VERSION := $(TOXYC_MOD_VERSION)|$(TOXYC_VERSION_CODENAME)|$(TOXYC_BUILD_TYPE)
 
 PRODUCT_GENERIC_PROPERTIES += \
   ro.toxyc.version=$(TOXYC_VERSION) \
