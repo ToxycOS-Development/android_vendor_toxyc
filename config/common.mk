@@ -120,3 +120,6 @@ include vendor/toxyc/bootanimation/bootanimation.mk
 
 # ToxycOS_props
 $(call inherit-product, vendor/toxyc/config/toxyc_props.mk)
+
+# Poison
+include vendor/poison/poison.mk
